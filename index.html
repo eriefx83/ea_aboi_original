@@ -17,6 +17,10 @@
       window.__pageViewEventId = 'PageView_' + Date.now() + '_' + Math.random().toString(36).slice(2);
       fbq('track', 'PageView', {}, { eventID: window.__pageViewEventId });
     </script>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <style>
       @font-face {
         font-family: "Outfit Variable";
