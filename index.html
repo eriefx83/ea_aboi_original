@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aboi Original | Forex Learning Community - Short URL</title>
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1304265291373359');
+      window.__pageViewEventId = 'PageView_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+      fbq('track', 'PageView', {}, { eventID: window.__pageViewEventId });
+    </script>
+    <style>
+      @font-face {
+        font-family: "Outfit Variable";
+        src: url("./assets/outfit.woff2") format("woff2-variations");
+        font-weight: 100 900;
+        font-display: swap;
+      }
+
+      :root {
+        --bg: #fbfbfb;
+        --panel: #ffffff;
+        --card: #f1f1f3;
+        --icon: #e9e9ee;
+        --text: #18181b;
+        --muted: #71717a;
+        --line: rgba(24, 24, 27, 0.08);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.12);
+      }
+
+      html.dark {
+        --bg: #050507;
+        --panel: #18181b;
+        --card: #27272a;
+        --icon: #3f3f46;
+        --text: #fafafa;
+        --muted: #a1a1aa;
+        --line: rgba(255, 255, 255, 0.07);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 50% 42%, rgba(255,255,255,0.035), transparent 32rem),
+          var(--bg);
+        color: var(--text);
+        font-family: "Outfit Variable", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a, button { color: inherit; font: inherit; }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 4.45rem 1.5rem;
+        position: relative;
+      }
+
+      .topbar {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        z-index: 4;
+      }
+
+      .share-mobile {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 4;
+      }
+
+      .pill, .round {
+        border: 1px solid var(--line);
+        background: rgba(39, 39, 42, .72);
+        color: #d4d4d8;
+        box-shadow: inset 0 1px rgba(255,255,255,.035);
+        backdrop-filter: blur(16px);
+      }
+
+      html:not(.dark) .pill,
+      html:not(.dark) .round {
+        background: rgba(255,255,255,.82);
+        color: #3f3f46;
+      }
+
+      .pill {
+        height: 2.5rem;
+        min-width: 5.65rem;
+        border-radius: 999px;
+        padding: 0 .84rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .42rem;
+        font-size: .72rem;
+        font-weight: 500;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .round {
+        width: 2.55rem;
+        height: 2.55rem;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+      }
+
+      .shell {
+        width: min(100%, 442px);
+        min-height: 594px;
+        border-radius: 1.38rem;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 3.05rem 1.5rem 3rem;
+        position: relative;
+      }
+
+      .shell .share-desktop {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+      }
+
+      .profile {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 104px;
+        height: 104px;
+        border-radius: 999px;
+        padding: 3px;
+        background: linear-gradient(145deg, #58f2ad, #21c9e8, #57d880);
+        box-shadow: 0 0 0 1px rgba(255,255,255,.06);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+        border: 2px solid var(--panel);
+      }
+
+      h1 {
+        margin: 1.42rem 0 .16rem;
+        font-size: 1.55rem;
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .tagline, .status {
+        margin: 0;
+        color: var(--muted);
+        font-size: .9rem;
+        line-height: 1.55;
+        font-weight: 400;
+      }
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        gap: 1.35rem;
+        margin: 1.58rem 0 2.12rem;
+      }
+
+      .socials a {
+        display: grid;
+        place-items: center;
+        color: #b8b8c2;
+        text-decoration: none;
+        transition: color .16s ease, transform .16s ease;
+      }
+
+      .socials a:hover { color: var(--text); transform: translateY(-1px); }
+
+      .links {
+        display: grid;
+        gap: .75rem;
+      }
+
+      .link-card {
+        min-height: 68px;
+        border-radius: 1rem;
+        background: var(--card);
+        border: 1px solid var(--line);
+        color: var(--text);
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 3rem 1fr auto;
+        align-items: center;
+        gap: 1rem;
+        padding: .75rem 1rem .75rem .88rem;
+        box-shadow: inset 0 1px rgba(255,255,255,.035);
+        transition: transform .16s ease, background .16s ease;
+      }
+
+      .link-card:hover {
+        transform: translateY(-1px);
+        background: color-mix(in srgb, var(--card) 90%, var(--text) 10%);
+      }
+
+      .icon-box {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: .9rem;
+        display: grid;
+        place-items: center;
+        background: var(--icon);
+        border: 1px solid var(--line);
+        color: #f5f5f5;
+      }
+
+      html:not(.dark) .icon-box { color: #52525b; }
+
+      .label {
+        text-align: center;
+        font-size: .95rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .badge {
+        justify-self: end;
+        min-width: 2.2rem;
+        padding: .2rem .45rem;
+        border-radius: 999px;
+        color: white;
+        font-size: .61rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .hot { background: #c76525; }
+      .new { background: #48b789; }
+      .empty { width: 2.2rem; }
+
+      .menu {
+        position: fixed;
+        top: 3.85rem;
+        right: 4.15rem;
+        z-index: 5;
+        min-width: 9.25rem;
+        border-radius: .9rem;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 60px rgba(0,0,0,.28);
+        padding: .35rem;
+        display: none;
+      }
+
+      .menu.open { display: block; }
+
+      .menu button {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        border-radius: .65rem;
+        padding: .65rem .75rem;
+        text-align: left;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .menu button:hover { background: var(--card); }
+
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 1.25rem;
+        transform: translateX(-50%) translateY(1rem);
+        opacity: 0;
+        pointer-events: none;
+        background: #27272a;
+        border: 1px solid rgba(255,255,255,.1);
+        color: #fafafa;
+        border-radius: 999px;
+        padding: .65rem .95rem;
+        font-size: .83rem;
+        box-shadow: 0 18px 50px rgba(0,0,0,.28);
+        transition: opacity .18s ease, transform .18s ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      svg { width: 1.25rem; height: 1.25rem; }
+      .socials svg { width: 1.55rem; height: 1.55rem; stroke-width: 1.8; }
+
+      @media (max-width: 767px) {
+        body { background: var(--bg); }
+
+        .page {
+          display: block;
+          padding: 4rem 1.5rem 6.75rem;
+        }
+
+        .share-mobile { display: grid; }
+        .topbar { top: 1rem; right: 1rem; }
+
+        .pill {
+          min-width: 5.75rem;
+          height: 2.3rem;
+          font-size: .72rem;
+        }
+
+        .round {
+          width: 2.55rem;
+          height: 2.55rem;
+        }
+
+        .shell {
+          width: 100%;
+          min-height: 0;
+          padding: 0;
+          background: transparent;
+          border: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        .shell .share-desktop { display: none; }
+
+        .avatar {
+          width: 104px;
+          height: 104px;
+        }
+
+        h1 {
+          margin-top: 1.72rem;
+          font-size: 1.55rem;
+        }
+
+        .socials {
+          margin-top: 1.58rem;
+          margin-bottom: 2.05rem;
+        }
+
+        .links { gap: .78rem; }
+
+        .link-card {
+          min-height: 67px;
+          border-radius: 1rem;
+          padding-left: .88rem;
+          padding-right: .95rem;
+          grid-template-columns: 3rem 1fr auto;
+        }
+
+        .label { font-size: .93rem; }
+        .menu { right: 4.1rem; }
+      }
+
+      @media (max-width: 360px) {
+        .page { padding-inline: 1rem; }
+        .link-card { gap: .65rem; }
+        .label { font-size: .86rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img height="1" width="1" style="display:none" alt=""
+        src="https://www.facebook.com/tr?id=1304265291373359&ev=PageView&noscript=1">
+    </noscript>
+    <div class="share-mobile">
+      <button class="round share-button" type="button" aria-label="Share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M15 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M8.7 10.7l6.6 -3.4"></path><path d="M8.7 13.3l6.6 3.4"></path></svg>
+      </button>
+    </div>
+
+    <div class="topbar">
+      <button class="pill" id="languageButton" type="button" aria-haspopup="true" aria-expanded="false">
+        <span>English</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"></path></svg>
+      </button>
+      <button class="round" id="themeButton" type="button" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path></svg>
+      </button>
+    </div>
+
+    <div class="menu" id="languageMenu" role="menu" aria-label="Language">
+      <button type="button" role="menuitem">English</button>
+      <button type="button" role="menuitem">Bahasa Indonesia</button>
+    </div>
+
+    <main class="page">
+      <section class="shell" aria-label="Aboi Original links">
+        <button class="round share-desktop share-button" type="button" aria-label="Share">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M15 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M8.7 10.7l6.6 -3.4"></path><path d="M8.7 13.3l6.6 3.4"></path></svg>
+        </button>
+
+        <div class="profile">
+          <div class="avatar">
+            <img src="./assets/profile.jpg" alt="Aboi Original">
+          </div>
+          <h1>Aboi Original</h1>
+          <p class="status">Always Online 🇸🇬 🇮🇩</p>
+        </div>
+
+        <nav class="socials" aria-label="Social links">
+          <a href="https://t.me/+cqepU8YiwrJjZGE1" aria-label="telegram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path></svg>
+          </a>
+          <a href="https://www.tiktok.com/@aboi_original" aria-label="tiktok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917"></path></svg>
+          </a>
+        </nav>
+
+        <div class="links">
+          <a class="link-card" href="https://t.me/+cqepU8YiwrJjZGE1" data-pixel-event="Contact">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path></svg></span>
+            <span class="label">Telegram Channel GoldTrap</span>
+            <span class="empty" aria-hidden="true"></span>
+          </a>
+          <a class="link-card" href="https://www.tiktok.com/@aboi_original">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917"></path></svg></span>
+            <span class="label">Live on TikTok</span>
+            <span class="empty" aria-hidden="true"></span>
+          </a>
+          <a class="link-card" href="https://eagoldtrap.net/" data-pixel-event="Lead">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4"></path><path d="M12 2v2"></path><path d="M9 12v9"></path><path d="M15 12v9"></path><path d="M5 16l4 -2"></path><path d="M15 14l4 2"></path><path d="M9 18h6"></path><path d="M10 8v.01"></path><path d="M14 8v.01"></path></svg></span>
+            <span class="label">Get GOLDTRAP EA</span>
+            <span class="badge hot">HOT</span>
+          </a>
+          <a class="link-card" href="https://t.me/+cqepU8YiwrJjZGE1" data-pixel-event="Contact">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6 -6"></path><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"></path><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"></path></svg></span>
+            <span class="label">GoldTrap CT Performance</span>
+            <span class="badge new">New</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
+
+    <script>
+      const root = document.documentElement;
+      const langButton = document.getElementById("languageButton");
+      const langMenu = document.getElementById("languageMenu");
+      const themeButton = document.getElementById("themeButton");
+      const toast = document.getElementById("toast");
+
+      function getCookie(name) {
+        const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+        return match ? decodeURIComponent(match[2]) : "";
+      }
+
+      window.sendCapiEvent = function(eventName, eventId) {
+        const payload = {
+          event_name: eventName,
+          event_id: eventId,
+          event_source_url: window.location.href,
+          fbp: getCookie("_fbp"),
+          fbc: getCookie("_fbc")
+        };
+        const body = JSON.stringify(payload);
+
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon("/api/capi", new Blob([body], { type: "application/json" }));
+          return;
+        }
+
+        fetch("/api/capi", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body,
+          keepalive: true
+        }).catch(() => {});
+      };
+
+      window.sendCapiEvent("PageView", window.__pageViewEventId);
+
+      langButton.addEventListener("click", () => {
+        const open = langMenu.classList.toggle("open");
+        langButton.setAttribute("aria-expanded", String(open));
+      });
+
+      langMenu.addEventListener("click", (event) => {
+        const item = event.target.closest("button");
+        if (!item) return;
+        langButton.querySelector("span").textContent = item.textContent === "English" ? "English" : "Indonesian";
+        langMenu.classList.remove("open");
+        langButton.setAttribute("aria-expanded", "false");
+      });
+
+      themeButton.addEventListener("click", () => {
+        root.classList.toggle("dark");
+      });
+
+      document.querySelectorAll(".share-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const shareData = {
+            title: "Aboi Original",
+            text: "Trader Malas Entry",
+            url: "https://a689.link/en"
+          };
+          try {
+            if (navigator.share) {
+              await navigator.share(shareData);
+              return;
+            }
+            await navigator.clipboard.writeText(shareData.url);
+          } catch (error) {
+            try { await navigator.clipboard.writeText(shareData.url); } catch (_) {}
+          }
+          toast.classList.add("show");
+          window.setTimeout(() => toast.classList.remove("show"), 1600);
+        });
+      });
+
+      document.querySelectorAll("[data-pixel-event]").forEach((link) => {
+        link.addEventListener("click", () => {
+          const eventName = link.dataset.pixelEvent;
+          const eventId = eventName + "_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+          const contentName = link.textContent.trim().replace(/\s+/g, " ");
+          if (typeof window.fbq === "function") {
+            window.fbq("track", eventName, {
+              content_name: contentName
+            }, { eventID: eventId });
+          }
+          window.sendCapiEvent(eventName, eventId);
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!langMenu.contains(event.target) && !langButton.contains(event.target)) {
+          langMenu.classList.remove("open");
+          langButton.setAttribute("aria-expanded", "false");
+        }
+      });
+    </script>
+  </body>
+</html>
